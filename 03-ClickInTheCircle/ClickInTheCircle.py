@@ -22,7 +22,8 @@ def main():
     pygame.display.set_caption("Mouse click positions")
     font = pygame.font.Font(None, 25)
 
-    # TODO 8: Load the "drums.wav" file into the pygame music mixer
+    # DONE 8: Load the "drums.wav" file into the pygame music mixer
+    pygame.mixer.music.load("drums.wav")
 
     instruction_text = 'Click in the circle'
     text_color = (222, 222, 0)
@@ -33,7 +34,7 @@ def main():
     circle_radius = 50
     circle_border_width = 3
 
-    message_text = instruction_text
+    message_text = ''
 
     while True:
 
@@ -50,12 +51,14 @@ def main():
                 # DONE 5: If distance_from_circle is less than or equal to circle_radius, set message_text to 'Bullseye!'
                 if distance_from_circle <= circle_radius:
                     message_text = "Bullseye!"
+                    pygame.mixer.music.play(-1)
                 else:
                     message_text = "You missed!"
+                    pygame.mixer.music.stop()
 
                 # DONE 5: If distance_from_circle is greater than the circle_radius, set the message_text to 'You missed!'
-                # TODO 9: Start playing the music mixer looping forever if the click is within the circle
-                # TODO 10: Stop playing the music if the click is outside the circle
+                # DONE 9: Start playing the music mixer looping forever if the click is within the circle
+                # DONE 10: Stop playing the music if the click is outside the circle
 
         screen.fill(pygame.Color("Black"))
 
@@ -66,8 +69,8 @@ def main():
         caption = font.render(message_text, True, (122, 237, 201)  )
 
         screen.blit(instructions_image, (25, 25))
-        # TODO 7: Draw (blit) the message to the user that says 'Bullseye!' or 'You missed!'
-        screen.blit(caption, (300, 300) )
+        # DONE 7: Draw (blit) the message to the user that says 'Bullseye!' or 'You missed!'
+        screen.blit(caption, (25, circle_center[1]))
         pygame.display.update()
 
 
