@@ -56,7 +56,7 @@ def main():
         y = image.get_height() - 9
         screen.blit(caption1, (x, y))
 
-        # TODO 7: On your own, create a new bigger font and in white text place a 'funny' message on top of the image.
+        # DONE 7: On your own, create a new bigger font and in white text place a 'funny' message on top of the image.
 
         # Update the screen
         pygame.display.update()
